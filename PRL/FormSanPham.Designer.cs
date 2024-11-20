@@ -621,7 +621,7 @@
             btn_xoasp.RightToLeft = RightToLeft.No;
             btn_xoasp.Size = new Size(110, 65);
             btn_xoasp.TabIndex = 28;
-            btn_xoasp.Text = "Xóa";
+            btn_xoasp.Text = "Load";
             btn_xoasp.UseMnemonic = false;
             btn_xoasp.UseVisualStyleBackColor = false;
             btn_xoasp.Click += btn_xoasp_Click;

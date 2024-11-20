@@ -81,9 +81,11 @@ CREATE TABLE NguoiDung (
     NguoiDungID INT PRIMARY KEY IDENTITY,
     TenDangNhap NVARCHAR(50) NOT NULL UNIQUE,
     MatKhauMaHoa NVARCHAR(255) NOT NULL,
-    Email NVARCHAR(100) NOT NULL UNIQUE
 );
 GO
+alter table NguoiDung
+add     Email NVARCHAR(100)
+
 -- Tạo bảng OTP
 CREATE TABLE OTPTable (
     OTPID INT PRIMARY KEY IDENTITY,
@@ -91,6 +93,7 @@ CREATE TABLE OTPTable (
     OTP NVARCHAR(6) NOT NULL,
     CreatedAt DATETIME NOT NULL
 );
+select * from NguoiDung
 
 -- Tạo bảng DanhGia
 CREATE TABLE DanhGia (

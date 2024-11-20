@@ -99,11 +99,6 @@ namespace PRL
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (currentFormChild != null)
-            {
-                currentFormChild.Close();
-            }
-            TieuDe.Text = btn_TrangChu.Text;
         }
 
         private void iconPictureBox1_Click(object sender, EventArgs e)
@@ -123,8 +118,6 @@ namespace PRL
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-OpenChildForm(new FormKhuyenMai());
-            TieuDe.Text= btn_KM.Text;
         }
 
         private void iconButton1_Click(object sender, EventArgs e)
@@ -133,14 +126,23 @@ OpenChildForm(new FormKhuyenMai());
             {
                 // Nếu panel đang hiển thị, ẩn nó
                 panel1.Visible = false;
-               icbtn_HienAn.Text = "Hiện Panel";
+                icbtn_HienAn.Text = "Hiện Panel";
             }
             else
             {
                 panel1.Visible = true;
-                icbtn_HienAn.Text = "Ẩn Panel"; 
+                icbtn_HienAn.Text = "Ẩn Panel";
             }
         }
 
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

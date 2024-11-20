@@ -54,7 +54,6 @@ namespace PRL
             khachHangBindingSource = new BindingSource(components);
             label6 = new Label();
             txtTimKiem = new TextBox();
-            groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_data).BeginInit();
             groupBox2.SuspendLayout();
             groupBox3.SuspendLayout();
@@ -65,12 +64,11 @@ namespace PRL
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(dgv_data);
             groupBox1.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox1.ForeColor = Color.Black;
-            groupBox1.Location = new Point(692, 212);
+            groupBox1.Location = new Point(923, 493);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(803, 243);
+            groupBox1.Size = new Size(790, 240);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Danh sách khách hàng";
@@ -78,10 +76,10 @@ namespace PRL
             // dgv_data
             // 
             dgv_data.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_data.Location = new Point(6, 29);
+            dgv_data.Location = new Point(924, 521);
             dgv_data.Name = "dgv_data";
             dgv_data.RowHeadersWidth = 51;
-            dgv_data.Size = new Size(790, 208);
+            dgv_data.Size = new Size(790, 212);
             dgv_data.TabIndex = 0;
             dgv_data.CellClick += dgv_data_CellClick;
             // 
@@ -223,9 +221,9 @@ namespace PRL
             groupBox2.Controls.Add(btnSua);
             groupBox2.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             groupBox2.ForeColor = Color.IndianRed;
-            groupBox2.Location = new Point(692, 12);
+            groupBox2.Location = new Point(692, 180);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(530, 101);
+            groupBox2.Size = new Size(530, 110);
             groupBox2.TabIndex = 19;
             groupBox2.TabStop = false;
             groupBox2.Text = "Chức năng";
@@ -256,7 +254,7 @@ namespace PRL
             groupBox5.Controls.Add(dgv_KhachHang);
             groupBox5.Location = new Point(48, 493);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(1060, 240);
+            groupBox5.Size = new Size(870, 240);
             groupBox5.TabIndex = 22;
             groupBox5.TabStop = false;
             groupBox5.Text = "Cấp độ khách hàng";
@@ -267,14 +265,14 @@ namespace PRL
             dgv_KhachHang.Location = new Point(0, 28);
             dgv_KhachHang.Name = "dgv_KhachHang";
             dgv_KhachHang.RowHeadersWidth = 51;
-            dgv_KhachHang.Size = new Size(1047, 212);
+            dgv_KhachHang.Size = new Size(870, 212);
             dgv_KhachHang.TabIndex = 0;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(698, 156);
+            label6.Location = new Point(914, 443);
             label6.Name = "label6";
             label6.Size = new Size(91, 23);
             label6.TabIndex = 27;
@@ -282,7 +280,7 @@ namespace PRL
             // 
             // txtTimKiem
             // 
-            txtTimKiem.Location = new Point(795, 155);
+            txtTimKiem.Location = new Point(1011, 443);
             txtTimKiem.Name = "txtTimKiem";
             txtTimKiem.Size = new Size(427, 27);
             txtTimKiem.TabIndex = 28;
@@ -293,7 +291,8 @@ namespace PRL
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 255, 255);
-            ClientSize = new Size(1500, 745);
+            ClientSize = new Size(1720, 745);
+            Controls.Add(dgv_data);
             Controls.Add(txtTimKiem);
             Controls.Add(label6);
             Controls.Add(groupBox5);
@@ -305,7 +304,6 @@ namespace PRL
             RightToLeft = RightToLeft.No;
             Text = "FormKhachHang";
             Load += FormKhachHang_Load;
-            groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgv_data).EndInit();
             groupBox2.ResumeLayout(false);
             groupBox3.ResumeLayout(false);

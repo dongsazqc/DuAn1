@@ -60,6 +60,7 @@
             label8 = new Label();
             dtg_HoaDon = new DataGridView();
             pn_ChiTiet = new Panel();
+            button4 = new Button();
             label9 = new Label();
             btn_Close = new Button();
             dtg_ChiTiet = new DataGridView();
@@ -78,9 +79,7 @@
             button1 = new Button();
             button2 = new Button();
             comboBox1 = new ComboBox();
-            saveFileDialog1 = new SaveFileDialog();
             button3 = new Button();
-            button4 = new Button();
             groupBox5.SuspendLayout();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
@@ -206,6 +205,7 @@
             txt_sđt.Name = "txt_sđt";
             txt_sđt.Size = new Size(221, 30);
             txt_sđt.TabIndex = 2;
+            txt_sđt.TextChanged += txt_sđt_TextChanged;
             // 
             // txt_tenkhachhang
             // 
@@ -271,6 +271,7 @@
             txt_khachdua.Name = "txt_khachdua";
             txt_khachdua.Size = new Size(221, 30);
             txt_khachdua.TabIndex = 34;
+            txt_khachdua.TextChanged += txt_khachdua_TextChanged;
             // 
             // txt_Tienthua
             // 
@@ -479,6 +480,19 @@
             pn_ChiTiet.TabIndex = 41;
             pn_ChiTiet.Paint += pn_ChiTiet_Paint;
             // 
+            // button4
+            // 
+            button4.BackColor = Color.Lime;
+            button4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 163);
+            button4.ForeColor = Color.Red;
+            button4.Location = new Point(330, 320);
+            button4.Name = "button4";
+            button4.Size = new Size(121, 47);
+            button4.TabIndex = 3;
+            button4.Text = "In hóa đơn";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += button4_Click;
+            // 
             // label9
             // 
             label9.AutoSize = true;
@@ -493,7 +507,7 @@
             // 
             btn_Close.BackColor = Color.Red;
             btn_Close.Font = new Font("MS Reference Sans Serif", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Close.Location = new Point(645, 7);
+            btn_Close.Location = new Point(734, 8);
             btn_Close.Name = "btn_Close";
             btn_Close.RightToLeft = RightToLeft.No;
             btn_Close.Size = new Size(38, 29);
@@ -684,16 +698,6 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click;
             // 
-            // button4
-            // 
-            button4.Location = new Point(141, 320);
-            button4.Name = "button4";
-            button4.Size = new Size(121, 47);
-            button4.TabIndex = 3;
-            button4.Text = "In hóa đơn";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
-            // 
             // FormBanHang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -790,7 +794,6 @@
         private Button button2;
         private ComboBox comboBox1;
         private Label label15;
-        private SaveFileDialog saveFileDialog1;
         private Button button3;
         private Label label17;
         private Button button4;

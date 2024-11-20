@@ -82,7 +82,7 @@ namespace PRL
             dgv_KhachHang.Columns[0].HeaderText = "STT";
             dgv_KhachHang.Columns[1].HeaderText = "ID Khách hàng";
             dgv_KhachHang.Columns[2].HeaderText = "Tên khách hàng";
-            dgv_KhachHang.Columns[3].HeaderText = "";
+            dgv_KhachHang.Columns[3].HeaderText = "Gmail";
             dgv_KhachHang.Columns[4].HeaderText = "SDT";
             dgv_KhachHang.Columns[5].HeaderText = "Địa chỉ";
             dgv_KhachHang.Columns[6].HeaderText = "Điểm tích lũy";
@@ -111,18 +111,24 @@ namespace PRL
             if (!_services.CheckSDT(sdt))
             {
                 MessageBox.Show("Số điện thoại không hợp lệ.");
+
                 return;
             }
-
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn thêm không?", "Thêm mới", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            var sdtkh = _services.GetKhachHangBySoDienThoai(sdt);
+            if (sdtkh != null)
             {
-                string kq = _services.CNThemOrUpdateKhachHang(ten, email, sdt, diachi, 0, "Đồng");
-                MessageBox.Show(kq);
-                LoadKhachHangData();
+                MessageBox.Show("Số điện thoại này đã tồn tại. Vui lòng nhập số điện thoại khác.");
+                return;
+
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn thêm không?", "Thêm mới", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    string kq = _services.CNThemOrUpdateKhachHang(ten, email, sdt, diachi, 0, "Đồng");
+                    MessageBox.Show(kq);
+                    LoadKhachHangData();
+                }
             }
         }
-
         private void dgv_KhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

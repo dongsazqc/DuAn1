@@ -19,7 +19,7 @@ namespace BUS.Service
         {
             return _dangnhaprep.ValidateUser(username, password);
         }
-        private string connectionString = "Data Source=DUONG;Initial Catalog=Du_An_Nhom4;User ID=sa;Password=123456;TrustServerCertificate=True";
+        private string connectionString = "Data Source=PHAM_VAN_DONG;Initial Catalog=Du_An_Nhom4;Integrated Security=True;Trust Server Certificate=True";
 
         public List<NguoiDung> GetNguoiDungByEmail(string email)
         {

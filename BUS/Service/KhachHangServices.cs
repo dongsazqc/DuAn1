@@ -130,8 +130,12 @@ namespace BUS.Service
 
         public bool CheckSDT(string sdt)
         {
-            if (sdt.Length > 10 || sdt.Trim().Length == 0) return false;
+            if (sdt.Length !=10   || sdt.Trim().Length == 0) return false;
             else return true;
+        }
+        public KhachHang GetKhachHangBySoDienThoai(string sdt)
+        {
+            return _repo.GetKhachHangBySoDienThoai(sdt);
         }
     }
 }

@@ -136,11 +136,7 @@ namespace PRL
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.InitialDirectory = "D:\\3.2-Du An 1";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                pictureBox1.Image.Save(saveFileDialog1.FileName);
-            }
+
         }
 
         private void showdata(List<HoaDonDaThanhToan> hoaDonDaThanhToans)
@@ -263,6 +259,7 @@ namespace PRL
 
 
 
+
         }
 
         private void label8_Click(object sender, EventArgs e)
@@ -328,7 +325,7 @@ namespace PRL
             }
         }
 
-        private void TongTienGioHang()
+        private decimal TongTienGioHang()
         {
             decimal tongTien = 0;
 
@@ -344,6 +341,7 @@ namespace PRL
                 }
             }
             txt_tongtien.Text = tongTien.ToString("0");
+            return tongTien;
         }
 
         private void btn_ThanhToan_Click(object sender, EventArgs e)
@@ -756,9 +754,34 @@ namespace PRL
 
         private void txt_TongTien_TextChanged(object sender, EventArgs e)
         {
+        }
+        public void TinhTienLast()
+        {
+            decimal khachdua;
+            decimal tongtien;
+            decimal tienthua;
+
+            // Lấy tổng tiền từ phương thức TongTienGioHang
+            tongtien = TongTienGioHang();
+
+            // Chuyển đổi giá trị từ txt_khachdua thành decimal
+            decimal.TryParse(txt_khachdua.Text, out khachdua);
+
+            // Tính số tiền thừa
+            tienthua = khachdua - tongtien;
+
+            // Hiển thị số tiền thừa vào txt_tienthua
+            if (tienthua >= 0)
+            {
+                txt_Tienthua.Text = tienthua.ToString(); 
+
+            }
+            else
+            {
+                txt_Tienthua.Text = "Thiếu tiền bà con ơi";
+            }
 
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
@@ -896,21 +919,25 @@ namespace PRL
         private void button4_Click(object sender, EventArgs e)
         {
             // Đường dẫn để lưu file Excel
-            string filePath = @"D:\3.2-Du An 1\newfile.xlsx";
+            string filePath = @"D:\3.2-Du An 1\pass.xlsx";
 
-            // Tạo một DataTable từ DataGridView
+            // Tạo một DataTable từ DataGridView dtg_HoaDon
             DataTable dt = new DataTable();
-            foreach (DataGridViewColumn column in dtg_ChiTiet.Columns)
+
+            // Thêm cột từ DataGridView dtg_HoaDon
+            foreach (DataGridViewColumn column in dtg_HoaDon.Columns)
             {
                 dt.Columns.Add(column.HeaderText);
             }
-            foreach (DataGridViewRow row in dtg_ChiTiet.Rows)
+
+            // Thêm dữ liệu từ DataGridView dtg_HoaDon
+            foreach (DataGridViewRow row in dtg_HoaDon.Rows)
             {
                 if (row.IsNewRow) continue;
                 DataRow dataRow = dt.NewRow();
-                foreach (DataGridViewCell cell in row.Cells)
+                for (int i = 0; i < dtg_HoaDon.Columns.Count; i++)
                 {
-                    dataRow[cell.ColumnIndex] = cell.Value;
+                    dataRow[i] = row.Cells[i].Value;
                 }
                 dt.Rows.Add(dataRow);
             }
@@ -918,12 +945,43 @@ namespace PRL
             // Tạo file Excel
             using (var workbook = new XLWorkbook())
             {
-                var worksheet = workbook.Worksheets.Add("Sheet1");
+                var worksheet = workbook.Worksheets.Add("HoaDon");
                 worksheet.Cell(1, 1).InsertTable(dt);
                 workbook.SaveAs(filePath);
             }
 
             MessageBox.Show("File Excel đã được tạo thành công!");
+        }
+
+        private void txt_sđt_TextChanged(object sender, EventArgs e)
+        {
+            string phoneNumber = txt_sđt.Text.Trim();
+
+            if (!string.IsNullOrEmpty(phoneNumber))
+            {
+                // Gọi tới dịch vụ để nhận khách hàng qua số điện thoại
+                var customer = _KhachHangRep.GetKhachHangBySoDienThoai(phoneNumber);
+
+                if (customer != null)
+                {
+                    // Khách hàng đã tìm thấy, điền vào hộp văn bản
+                    txt_tenkhachhang.Text = customer.TenKhachHang;
+                    txt_Gmail.Text = customer.Email;
+                    txt_DiaChi.Text = customer.DiaChi;
+                }
+                else
+                {
+                    // Xóa hộp văn bản nếu không tìm thấy khách hàng
+                    txt_tenkhachhang.Text = string.Empty;
+                    txt_Gmail.Text = string.Empty;
+                    txt_DiaChi.Text = string.Empty;
+                }
+            }
+        }
+
+        private void txt_khachdua_TextChanged(object sender, EventArgs e)
+        {
+            TinhTienLast();
         }
     }
 }

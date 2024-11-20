@@ -35,42 +35,40 @@
             iconPictureBox3 = new FontAwesome.Sharp.IconPictureBox();
             iconPictureBox2 = new FontAwesome.Sharp.IconPictureBox();
             iconPictureBox1 = new FontAwesome.Sharp.IconPictureBox();
-            btn_TrangChu = new Button();
             label1 = new Label();
             btn_BanHang = new Button();
             btn_KhachHang = new Button();
             btn_SanPham = new Button();
+            btn_Trangchu = new Button();
             panel_Body = new Panel();
+            pictureBox1 = new PictureBox();
             TieuDe = new Label();
             panel2 = new Panel();
             icbtn_HienAn = new FontAwesome.Sharp.IconButton();
-            iconPictureBox6 = new FontAwesome.Sharp.IconPictureBox();
-            btn_KM = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).BeginInit();
+            panel_Body.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox6).BeginInit();
             SuspendLayout();
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(0, 0, 192);
-            panel1.Controls.Add(iconPictureBox6);
-            panel1.Controls.Add(btn_KM);
             panel1.Controls.Add(pictureBox2);
             panel1.Controls.Add(iconPictureBox4);
             panel1.Controls.Add(iconPictureBox3);
             panel1.Controls.Add(iconPictureBox2);
             panel1.Controls.Add(iconPictureBox1);
-            panel1.Controls.Add(btn_TrangChu);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(btn_BanHang);
             panel1.Controls.Add(btn_KhachHang);
             panel1.Controls.Add(btn_SanPham);
+            panel1.Controls.Add(btn_Trangchu);
             panel1.Location = new Point(-1, 2);
             panel1.Name = "panel1";
             panel1.Size = new Size(249, 1032);
@@ -94,7 +92,7 @@
             iconPictureBox4.IconColor = Color.White;
             iconPictureBox4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox4.IconSize = 40;
-            iconPictureBox4.Location = new Point(23, 705);
+            iconPictureBox4.Location = new Point(23, 768);
             iconPictureBox4.Name = "iconPictureBox4";
             iconPictureBox4.Size = new Size(40, 40);
             iconPictureBox4.TabIndex = 10;
@@ -107,7 +105,7 @@
             iconPictureBox3.IconColor = Color.White;
             iconPictureBox3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox3.IconSize = 40;
-            iconPictureBox3.Location = new Point(23, 575);
+            iconPictureBox3.Location = new Point(23, 625);
             iconPictureBox3.Name = "iconPictureBox3";
             iconPictureBox3.Size = new Size(40, 40);
             iconPictureBox3.TabIndex = 9;
@@ -120,7 +118,7 @@
             iconPictureBox2.IconColor = Color.White;
             iconPictureBox2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox2.IconSize = 40;
-            iconPictureBox2.Location = new Point(23, 450);
+            iconPictureBox2.Location = new Point(23, 492);
             iconPictureBox2.Name = "iconPictureBox2";
             iconPictureBox2.Size = new Size(40, 40);
             iconPictureBox2.TabIndex = 8;
@@ -133,26 +131,11 @@
             iconPictureBox1.IconColor = Color.White;
             iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconPictureBox1.IconSize = 40;
-            iconPictureBox1.Location = new Point(23, 321);
+            iconPictureBox1.Location = new Point(23, 371);
             iconPictureBox1.Name = "iconPictureBox1";
             iconPictureBox1.Size = new Size(40, 40);
             iconPictureBox1.TabIndex = 7;
             iconPictureBox1.TabStop = false;
-            // 
-            // btn_TrangChu
-            // 
-            btn_TrangChu.BackColor = Color.FromArgb(0, 0, 192);
-            btn_TrangChu.FlatAppearance.BorderSize = 0;
-            btn_TrangChu.FlatStyle = FlatStyle.Flat;
-            btn_TrangChu.Font = new Font("Franklin Gothic Demi Cond", 13F, FontStyle.Bold);
-            btn_TrangChu.ForeColor = Color.WhiteSmoke;
-            btn_TrangChu.Location = new Point(3, 290);
-            btn_TrangChu.Name = "btn_TrangChu";
-            btn_TrangChu.Size = new Size(249, 112);
-            btn_TrangChu.TabIndex = 6;
-            btn_TrangChu.Text = "Trang chủ";
-            btn_TrangChu.UseVisualStyleBackColor = false;
-            btn_TrangChu.Click += button2_Click;
             // 
             // label1
             // 
@@ -160,7 +143,7 @@
             label1.BackColor = Color.FromArgb(0, 0, 192);
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 163);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(56, 963);
+            label1.Location = new Point(52, 915);
             label1.Name = "label1";
             label1.Size = new Size(111, 28);
             label1.TabIndex = 6;
@@ -173,7 +156,7 @@
             btn_BanHang.FlatStyle = FlatStyle.Flat;
             btn_BanHang.Font = new Font("Franklin Gothic Demi Cond", 13F, FontStyle.Bold);
             btn_BanHang.ForeColor = Color.WhiteSmoke;
-            btn_BanHang.Location = new Point(0, 667);
+            btn_BanHang.Location = new Point(0, 737);
             btn_BanHang.Name = "btn_BanHang";
             btn_BanHang.Size = new Size(249, 112);
             btn_BanHang.TabIndex = 5;
@@ -188,7 +171,7 @@
             btn_KhachHang.FlatStyle = FlatStyle.Flat;
             btn_KhachHang.Font = new Font("Franklin Gothic Demi Cond", 13F, FontStyle.Bold);
             btn_KhachHang.ForeColor = Color.White;
-            btn_KhachHang.Location = new Point(3, 536);
+            btn_KhachHang.Location = new Point(3, 597);
             btn_KhachHang.Name = "btn_KhachHang";
             btn_KhachHang.Size = new Size(249, 112);
             btn_KhachHang.TabIndex = 4;
@@ -203,7 +186,7 @@
             btn_SanPham.FlatStyle = FlatStyle.Flat;
             btn_SanPham.Font = new Font("Franklin Gothic Demi Cond", 13F, FontStyle.Bold);
             btn_SanPham.ForeColor = Color.White;
-            btn_SanPham.Location = new Point(3, 418);
+            btn_SanPham.Location = new Point(-3, 460);
             btn_SanPham.Name = "btn_SanPham";
             btn_SanPham.Size = new Size(249, 112);
             btn_SanPham.TabIndex = 0;
@@ -211,14 +194,41 @@
             btn_SanPham.UseVisualStyleBackColor = false;
             btn_SanPham.Click += btn_SanPham_Click;
             // 
+            // btn_Trangchu
+            // 
+            btn_Trangchu.BackColor = Color.FromArgb(0, 0, 192);
+            btn_Trangchu.FlatAppearance.BorderSize = 0;
+            btn_Trangchu.FlatStyle = FlatStyle.Flat;
+            btn_Trangchu.Font = new Font("Franklin Gothic Demi Cond", 13F, FontStyle.Bold);
+            btn_Trangchu.ForeColor = Color.White;
+            btn_Trangchu.Location = new Point(0, 342);
+            btn_Trangchu.Name = "btn_Trangchu";
+            btn_Trangchu.Size = new Size(249, 112);
+            btn_Trangchu.TabIndex = 13;
+            btn_Trangchu.Text = "Trang chủ";
+            btn_Trangchu.UseVisualStyleBackColor = false;
+            btn_Trangchu.Click += button1_Click_2;
+            // 
             // panel_Body
             // 
             panel_Body.BackColor = Color.FromArgb(255, 224, 192);
+            panel_Body.Controls.Add(pictureBox1);
             panel_Body.Location = new Point(-1, 112);
             panel_Body.Name = "panel_Body";
             panel_Body.Size = new Size(1903, 922);
             panel_Body.TabIndex = 2;
             panel_Body.Paint += panel_Body_Paint;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(252, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(1639, 802);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // TieuDe
             // 
@@ -254,34 +264,6 @@
             icbtn_HienAn.UseVisualStyleBackColor = false;
             icbtn_HienAn.Click += iconButton1_Click;
             // 
-            // iconPictureBox6
-            // 
-            iconPictureBox6.BackColor = Color.FromArgb(0, 0, 192);
-            iconPictureBox6.IconChar = FontAwesome.Sharp.IconChar.PiggyBank;
-            iconPictureBox6.IconColor = Color.White;
-            iconPictureBox6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconPictureBox6.IconSize = 40;
-            iconPictureBox6.Location = new Point(23, 827);
-            iconPictureBox6.Name = "iconPictureBox6";
-            iconPictureBox6.Size = new Size(40, 40);
-            iconPictureBox6.TabIndex = 13;
-            iconPictureBox6.TabStop = false;
-            // 
-            // btn_KM
-            // 
-            btn_KM.BackColor = Color.FromArgb(0, 0, 192);
-            btn_KM.FlatAppearance.BorderSize = 0;
-            btn_KM.FlatStyle = FlatStyle.Flat;
-            btn_KM.Font = new Font("Franklin Gothic Demi Cond", 13F, FontStyle.Bold);
-            btn_KM.ForeColor = Color.White;
-            btn_KM.Location = new Point(3, 798);
-            btn_KM.Name = "btn_KM";
-            btn_KM.Size = new Size(249, 112);
-            btn_KM.TabIndex = 6;
-            btn_KM.Text = "Khuyễn mãi";
-            btn_KM.UseVisualStyleBackColor = false;
-            btn_KM.Click += button1_Click_1;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -301,9 +283,10 @@
             ((System.ComponentModel.ISupportInitialize)iconPictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)iconPictureBox1).EndInit();
+            panel_Body.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)iconPictureBox6).EndInit();
             ResumeLayout(false);
         }
 
@@ -315,7 +298,6 @@
         private Button btn_KhachHang;
         private Label label1;
         private Button btn_BanHang;
-        private Button btn_TrangChu;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox1;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox3;
         private FontAwesome.Sharp.IconPictureBox iconPictureBox2;
@@ -323,9 +305,9 @@
         private PictureBox pictureBox2;
         private Panel panel2;
         private Label TieuDe;
-        private FontAwesome.Sharp.IconPictureBox iconPictureBox6;
         private Button btn_Voucher;
         private FontAwesome.Sharp.IconButton icbtn_HienAn;
-        private Button btn_KM;
+        private Button btn_Trangchu;
+        private PictureBox pictureBox1;
     }
 }

@@ -504,8 +504,7 @@ namespace PRL
             {
                 MessageBox.Show("Ngày hợp lệ.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 // Thực hiện các hành động khác nếu cần
-            }
-            int maInt = int.Parse(maspgg);
+ int maInt = int.Parse(maspgg);
             decimal giadecimal = decimal.Parse(gia);
             decimal phantramgiamdcl = decimal.Parse(phantramgiam);
             decimal giagiamdcl = decimal.Parse(giagiam);
@@ -520,6 +519,8 @@ namespace PRL
                 loadgg();
                 ; return;
             }
+            }
+           
         }
 
         private void btn_suaspgg_Click(object sender, EventArgs e)
@@ -532,20 +533,32 @@ namespace PRL
             string motaspgg = rtb_mota.Text;
             DateOnly ngaybd = DateOnly.FromDateTime(dt_ngaybd.Value);
             DateOnly ngaykt = DateOnly.FromDateTime(dt_ngaykt.Value);
-            int maInt = int.Parse(maspgg);
-            decimal giadecimal = decimal.Parse(gia);
-            decimal phantramgiamdcl = decimal.Parse(phantramgiam);
-            decimal giagiamdcl = decimal.Parse(giagiam);
-            txt_gia.Text = giadecimal.ToString("F2"); // F2 để định dạng với 2 chữ số thập phân
-            txt_phantramgiam.Text = phantramgiamdcl.ToString("F2");
-            txt_giagiam.Text = giagiamdcl.ToString("F2");
-            DialogResult result = MessageBox.Show("bạn có muốn Sửa không?", "thêm mới", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            DateTime startDate = dt_ngaybd.Value;
+            DateTime endDate = dt_ngaykt.Value;
+
+            if (startDate > endDate)
             {
-                string kq = _spgiamgia.CNSua(maInt, tenspgg, giadecimal, phantramgiamdcl, giagiamdcl, ngaybd, ngaykt, motaspgg);
-                MessageBox.Show(kq);
-                loadgg();
-                ; return;
+                MessageBox.Show("Ngày bắt đầu không được lớn hơn ngày kết thúc.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Bạn có thể thêm các hành động khác nếu muốn, ví dụ như reset ngày bắt đầu về ngày kết thúc
+                dt_ngaybd.Value = endDate;
+            }
+            else if (endDate > startDate)
+            {
+                int maInt = int.Parse(maspgg);
+                decimal giadecimal = decimal.Parse(gia);
+                decimal phantramgiamdcl = decimal.Parse(phantramgiam);
+                decimal giagiamdcl = decimal.Parse(giagiam);
+                txt_gia.Text = giadecimal.ToString("F2"); // F2 để định dạng với 2 chữ số thập phân
+                txt_phantramgiam.Text = phantramgiamdcl.ToString("F2");
+                txt_giagiam.Text = giagiamdcl.ToString("F2");
+                DialogResult result = MessageBox.Show("bạn có muốn thêm không?", "thêm mới", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    string kq = _spgiamgia.CNthem(maInt, tenspgg, giadecimal, phantramgiamdcl, giagiamdcl, ngaybd, ngaykt, motaspgg);
+                    MessageBox.Show(kq);
+                    loadgg();
+                    ; return;
+                }
             }
         }
 
