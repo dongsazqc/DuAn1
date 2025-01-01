@@ -12,9 +12,6 @@ using System.Windows.Forms;
 using DAL.Models;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.Data.SqlClient;
-using AForge;
-using AForge.Video;
-using AForge.Video.DirectShow;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using Emgu.CV.CvEnum;
@@ -40,7 +37,7 @@ namespace PRL
 
 
 
-        private readonly string connectionString = "Data Source=PHAM_VAN_DONG;Initial Catalog=Du_An_Nhom4;Integrated Security=True;Trust Server Certificate=True";
+        private readonly string connectionString = "Data Source=PHAMVANDONG\\DONGSAZQC;Initial Catalog=Du_An_Nhom4;Integrated Security=True;Trust Server Certificate=True";
 
 
         KhachHangServices _KhachHangServices = new KhachHangServices();
@@ -53,87 +50,14 @@ namespace PRL
             List<HoaDonDaThanhToan> hoaDonDaThanhToans = _hdttService.CNShowHoaDonThanhToan();
             showdata(hoaDonDaThanhToans);
             pn_ChiTiet.Visible = false;
-            cameras = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            foreach (FilterInfo info in cameras)
             {
-                comboBox1.Items.Add(info.Name);
             }
-            comboBox1.SelectedIndex = 0;
 
 
         }
         private BarcodeDetector qrCodeDetector;
-        private FilterInfoCollection cameras;
-        private VideoCaptureDevice cam;
-
-        private void button1_Click_2(object sender, EventArgs e)
-        {
-            if (cam != null && cam.IsRunning)
-            {
-                cam.Stop();
-            }
-            cam = new VideoCaptureDevice(cameras[comboBox1.SelectedIndex].MonikerString);
-            cam.NewFrame += Cam_NewFrame;
-            cam.Start();
-        }
-
-        private void Cam_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            try
-            {
-                Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
-                pictureBox1.Image = bitmap;
-
-                // Chuyển đổi Bitmap sang Image<Bgr, Byte>
-
-                // Quét mã QR
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message);
-            }
 
 
-        }
-        private void button3_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cam != null)
-                {
-                    if (cam.IsRunning)
-                    {
-                        cam.SignalToStop();
-                        cam.WaitForStop(); // Chờ cho đến khi camera dừng hoàn toàn
-                    }
-
-                    cam = null; // Giải phóng đối tượng camera
-                }
-
-                // Xóa ảnh trong PictureBox
-                pictureBox1.Image = null;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi khi dừng camera: " + ex.Message);
-            }
-        }
-        protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-
-            if (cam != null)
-            {
-                if (cam.IsRunning)
-                {
-                    cam.SignalToStop(); // Gửi tín hiệu để dừng camera
-                    cam.WaitForStop(); // Chờ cho đến khi camera dừng hoàn toàn
-                }
-
-                cam = null; // Giải phóng đối tượng camera
-            }
-        }
         private void button2_Click(object sender, EventArgs e)
         {
 

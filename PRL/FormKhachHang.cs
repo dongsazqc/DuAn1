@@ -108,26 +108,17 @@ namespace PRL
                 return;
             }
 
-            if (!_services.CheckSDT(sdt))
-            {
-                MessageBox.Show("Số điện thoại không hợp lệ.");
-
-                return;
-            }
             var sdtkh = _services.GetKhachHangBySoDienThoai(sdt);
             if (sdtkh != null)
             {
                 MessageBox.Show("Số điện thoại này đã tồn tại. Vui lòng nhập số điện thoại khác.");
                 return;
 
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn thêm không?", "Thêm mới", MessageBoxButtons.YesNo);
-                if (result == DialogResult.Yes)
-                {
-                    string kq = _services.CNThemOrUpdateKhachHang(ten, email, sdt, diachi, 0, "Đồng");
-                    MessageBox.Show(kq);
-                    LoadKhachHangData();
-                }
             }
+            string kq = _services.CNThemOrUpdateKhachHang(ten, email, sdt, diachi, 0, "Đồng");
+            MessageBox.Show(kq);
+            LoadKhachHangData();
+
         }
         private void dgv_KhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

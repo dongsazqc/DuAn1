@@ -668,7 +668,6 @@
             button1.TabIndex = 43;
             button1.Text = "Bắt đầu quét";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_2;
             // 
             // button2
             // 
@@ -696,7 +695,6 @@
             button3.TabIndex = 47;
             button3.Text = "Dừng ";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // FormBanHang
             // 

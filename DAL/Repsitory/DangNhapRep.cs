@@ -9,7 +9,7 @@ namespace DAL.Repsitory
 {
     public class DangNhapRep
     {
-            private string ketnoi = "Data Source=PHAM_VAN_DONG;Initial Catalog=Du_An_Nhom4;Integrated Security=True;Trust Server Certificate=True";
+            private string ketnoi = "Data Source=PHAMVANDONG\\DONGSAZQC;Initial Catalog=Du_An_Nhom4;Integrated Security=True;Trust Server Certificate=True";
 
             public bool ValidateUser(string username, string password)
             {
